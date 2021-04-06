@@ -181,7 +181,7 @@ namespace Synthie
                 Instrument instrument = null;
                 if (note.Instrument == "ToneInstrument")
                 {
-                    instrument = new ToneInstrument();
+                    instrument = new Organ();
                 }
 
                 // Configure the instrument object
