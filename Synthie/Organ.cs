@@ -26,12 +26,13 @@ namespace Synthie
             sinewave.Generate();
             //TASK
             frame = sinewave.Frame();
+            // add the drawbar harmonics to the frames
             DrawBars();
             ar.Generate();
 
             // Read the component's sample and make it our resulting frame.
             //TASK
-            frame[0] = ar.Frame(0);      //pull the adjusted samples and add the drawbar harmonics
+            frame[0] = ar.Frame(0);      //pull the adjusted samples
             frame[1] = ar.Frame(1);
 
             // Update time
@@ -53,8 +54,6 @@ namespace Synthie
             sinewave.Start();
             time = 0;
 
-
-            // ADDED FOR TASK
             // Tell the AR object it gets its samples from 
             // the sine wave object.
             ar.Source = this;
@@ -65,17 +64,16 @@ namespace Synthie
 
         private void DrawBars()
         {
-            double harm20 = sinewave.Amp * Math.Sin(sinewave.Phase * 2 * 2 * Math.PI) * .354;
-            double harm60 = sinewave.Amp * Math.Sin(sinewave.Phase * 6 * 2 * Math.PI) * .126;
+            int[] draw = { 8, 8, 5, 0, 2, 0, 0, 0, 0 };
+            int[] freqMul = { 1, 3, 2, 4, 6, 8, 10, 12, 16 };
+            double[] harmonics = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            for (int i = 0; i < 9; i++)
+            {
+                harmonics[i] = sinewave.Amp * Math.Sin(sinewave.Phase * freqMul[i] * 2 * Math.PI) * (Math.Pow(10, ((draw[i] - 8) * 3) / 20));
+                frame[0] += harmonics[i];
+            }
 
-            double[] drawbars = new double[2];
-            drawbars[0] = harm20 + harm60;
-            drawbars[1] = harm20 + harm60;
-
-            frame[0] += harm20 + harm60;
             frame[1] = frame[0];
-
-            //return drawbars;
         }
     }
 }
