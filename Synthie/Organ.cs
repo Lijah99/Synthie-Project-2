@@ -25,13 +25,14 @@ namespace Synthie
             // Tell the component to generate an audio sample
             sinewave.Generate();
             //TASK
+            double[] drawbars = DrawBars();
             frame = sinewave.Frame();
             ar.Generate();
 
             // Read the component's sample and make it our resulting frame.
             //TASK
-            frame[0] = ar.Frame(0);      //pull the adjusted sample
-            frame[1] = ar.Frame(1);
+            frame[0] = ar.Frame(0) + drawbars[0];      //pull the adjusted samples and add the drawbar harmonics
+            frame[1] = ar.Frame(1) + drawbars[1];
 
             // Update time
             time += samplePeriod;
@@ -60,6 +61,18 @@ namespace Synthie
             ar.SampleRate = SampleRate;
             ar.SoundDuration = duration;
             ar.Start(); ;
+        }
+
+        private double[] DrawBars()
+        {
+            double harm20 = sinewave.Amp * Math.Sin(sinewave.Phase * 2 * 2 * Math.PI) * .354;
+            double harm60 = sinewave.Amp * Math.Sin(sinewave.Phase * 6 * 2 * Math.PI) * .126;
+
+            double[] drawbars = new double[2];
+            drawbars[0] = harm20 + harm60;
+            drawbars[1] = harm20 + harm60;
+
+            return drawbars;
         }
     }
 }
