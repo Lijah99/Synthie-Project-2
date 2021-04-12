@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<score bpm="60" beatspermeasure="4">
+   <instrument instrument="Organ">
+      <note measure="2" beat="1" count="1" note="C3"/>
+      <note measure="2" beat="2" count="1" note="C3"/>
+      <note measure="2" beat="3" count="2" note="C3"/>
+      <note measure="1" beat="1" count="2" note="D2"/>
+      <note measure="1" beat="3" count="1" note="D2"/>
+      <note measure="1" beat="4" count="1" note="D2"/> 
+      <note measure="3" beat="1" count="1" note="Bb3"/>
+      <note measure="3" beat="2" count="1" note="D2"/>
+      <note measure="3" beat="3" count="1" note="Bb3"/>
+      <note measure="3" beat="4" count="1" note="Bb3"/> 
+      <note measure="4" beat="1" count="3" note="A3"/>
+      <note measure="4" beat="4" count="1" note="A3"/>
+      <note measure="5" beat="1" count="1" note="D2"/>
+      <note measure="5" beat="2" count="1" note="D2"/>
+      <note measure="5" beat="3" count="1" note="D2"/>
+      <note measure="5" beat="4" count="1" note="D2"/> 
+      <note measure="3" beat="1" count="1" note="Bb3"/>
+      <note measure="3" beat="2" count="1" note="Bb3"/>
+      <note measure="3" beat="3" count="1" note="Bb3"/>
+      <note measure="3" beat="4" count="1" note="Bb3"/>
+   </instrument>
+</score>
