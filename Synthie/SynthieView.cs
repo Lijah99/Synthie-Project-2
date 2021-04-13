@@ -82,11 +82,12 @@ namespace Synthie
             //keep asking for samples, until otherwise indicated
             while (synthesizer.Generate(frame))
             {
+                //check for noise gate
                 if(ApplyNoiseGate)
                 {
-                    if (frame[0] < noiseGateThreshold)
+                    if (Math.Abs(frame[0]) < noiseGateThreshold)
                         frame[0] = 0;
-                    if (frame[1] < noiseGateThreshold)
+                    if (Math.Abs(frame[1]) < noiseGateThreshold)
                         frame[1] = 0;
                 }
                 sound.WriteStreamSample(ClampFrame(frame));

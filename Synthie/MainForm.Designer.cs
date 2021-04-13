@@ -195,7 +195,7 @@
             65536});
             this.numericNoiseGateThreshold.Location = new System.Drawing.Point(200, 55);
             this.numericNoiseGateThreshold.Maximum = new decimal(new int[] {
-            1000,
+            1,
             0,
             0,
             0});
