@@ -37,14 +37,18 @@
             this.audioOutputItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.hz1000Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.synthesizerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
-            this.synthesizerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noiseGateCheck = new System.Windows.Forms.CheckBox();
+            this.effectsLabel = new System.Windows.Forms.Label();
+            this.numericNoiseGateThreshold = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -115,6 +119,13 @@
             this.hz1000Item.Text = "1000Hz Tone";
             this.hz1000Item.Click += new System.EventHandler(this.hz1000Item_Click);
             // 
+            // synthesizerToolStripMenuItem
+            // 
+            this.synthesizerToolStripMenuItem.Name = "synthesizerToolStripMenuItem";
+            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.synthesizerToolStripMenuItem.Text = "Synthesizer";
+            this.synthesizerToolStripMenuItem.Click += new System.EventHandler(this.synthesizerToolStripMenuItem_Click);
+            // 
             // playbackToolStripMenuItem
             // 
             this.playbackToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -138,6 +149,13 @@
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
+            // openScoreToolStripMenuItem
+            // 
+            this.openScoreToolStripMenuItem.Name = "openScoreToolStripMenuItem";
+            this.openScoreToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.openScoreToolStripMenuItem.Text = "Open Score";
+            this.openScoreToolStripMenuItem.Click += new System.EventHandler(this.openScoreToolStripMenuItem_Click);
+            // 
             // saveFileDlg
             // 
             this.saveFileDlg.Filter = "Wave Files (*.wav)|*.wav| MP3 (*.mp3)|*.mp3";
@@ -146,25 +164,53 @@
             // 
             this.openFileDlg.Filter = "Score files (*.score)|*.score|All Files (*.*)|*.*";
             // 
-            // synthesizerToolStripMenuItem
+            // noiseGateCheck
             // 
-            this.synthesizerToolStripMenuItem.Name = "synthesizerToolStripMenuItem";
-            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.synthesizerToolStripMenuItem.Text = "Synthesizer";
-            this.synthesizerToolStripMenuItem.Click += new System.EventHandler(this.synthesizerToolStripMenuItem_Click);
+            this.noiseGateCheck.AutoSize = true;
+            this.noiseGateCheck.Location = new System.Drawing.Point(18, 58);
+            this.noiseGateCheck.Name = "noiseGateCheck";
+            this.noiseGateCheck.Size = new System.Drawing.Size(176, 17);
+            this.noiseGateCheck.TabIndex = 1;
+            this.noiseGateCheck.Text = "Noise Gate: Minimum Threshold";
+            this.noiseGateCheck.UseVisualStyleBackColor = true;
+            this.noiseGateCheck.CheckedChanged += new System.EventHandler(this.noiseGateCheck_CheckedChanged);
             // 
-            // openScoreToolStripMenuItem
+            // effectsLabel
             // 
-            this.openScoreToolStripMenuItem.Name = "openScoreToolStripMenuItem";
-            this.openScoreToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.openScoreToolStripMenuItem.Text = "Open Score";
-            this.openScoreToolStripMenuItem.Click += new System.EventHandler(this.openScoreToolStripMenuItem_Click);
+            this.effectsLabel.AutoSize = true;
+            this.effectsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.effectsLabel.Location = new System.Drawing.Point(12, 24);
+            this.effectsLabel.Name = "effectsLabel";
+            this.effectsLabel.Size = new System.Drawing.Size(99, 31);
+            this.effectsLabel.TabIndex = 2;
+            this.effectsLabel.Text = "Effects";
+            // 
+            // numericNoiseGateThreshold
+            // 
+            this.numericNoiseGateThreshold.DecimalPlaces = 2;
+            this.numericNoiseGateThreshold.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.numericNoiseGateThreshold.Location = new System.Drawing.Point(200, 55);
+            this.numericNoiseGateThreshold.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericNoiseGateThreshold.Name = "numericNoiseGateThreshold";
+            this.numericNoiseGateThreshold.Size = new System.Drawing.Size(120, 20);
+            this.numericNoiseGateThreshold.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numericNoiseGateThreshold);
+            this.Controls.Add(this.effectsLabel);
+            this.Controls.Add(this.noiseGateCheck);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -172,6 +218,7 @@
             this.Text = "Synthie";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,6 +241,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDlg;
         private System.Windows.Forms.ToolStripMenuItem synthesizerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openScoreToolStripMenuItem;
+        private System.Windows.Forms.CheckBox noiseGateCheck;
+        private System.Windows.Forms.Label effectsLabel;
+        private System.Windows.Forms.NumericUpDown numericNoiseGateThreshold;
     }
 }
 
