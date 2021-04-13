@@ -54,6 +54,7 @@
     <Compile Include="DrumInstrument.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="Note.cs" />
+    <Compile Include="Organ.cs" />
     <Compile Include="SineWave.cs" />
     <Compile Include="Synthesizer.cs" />
     <Compile Include="MainForm.cs">
@@ -89,6 +90,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="longScoreFast.score" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

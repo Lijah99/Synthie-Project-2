@@ -183,6 +183,10 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
+                else if(note.Instrument == "Organ")
+                {
+                    instrument = new Organ();
+                }
 
                 if (note.Instrument == "DrumInstrument")
                 {
