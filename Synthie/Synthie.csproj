@@ -53,6 +53,7 @@
     <Compile Include="AudioNode.cs" />
     <Compile Include="DrumInstrument.cs" />
     <Compile Include="DrumWaveTable.cs" />
+    <Compile Include="Effects.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Organ.cs" />

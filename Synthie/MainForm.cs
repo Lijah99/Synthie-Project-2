@@ -102,5 +102,17 @@ namespace Synthie
                 view.OpenScore(openFileDlg.FileName);
             }
         }
+
+        private void noiseGateCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            //activated
+            if (noiseGateCheck.Checked)
+            {
+                view.NoiseGateThreshold = (double)numericNoiseGateThreshold.Value;
+                view.ApplyNoiseGate = true;
+            }
+            else
+                view.ApplyNoiseGate = false;
+        }
     }
 }

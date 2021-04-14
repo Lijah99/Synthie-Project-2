@@ -14,6 +14,11 @@ namespace Synthie
         public int SampleRate { get; } = 44100;
 
         private Synthesizer synthesizer = null;
+
+        //effects related parameters
+        private double noiseGateThreshold = 0.0;
+        public Boolean ApplyNoiseGate { get; set; } = false;
+        public double NoiseGateThreshold { get => noiseGateThreshold; set => noiseGateThreshold = value; }
         public SynthieView()
         {
             sound = new Sound(SampleRate, NumChannels);
@@ -77,6 +82,14 @@ namespace Synthie
             //keep asking for samples, until otherwise indicated
             while (synthesizer.Generate(frame))
             {
+                //check for noise gate
+                if(ApplyNoiseGate)
+                {
+                    if (Math.Abs(frame[0]) < noiseGateThreshold)
+                        frame[0] = 0;
+                    if (Math.Abs(frame[1]) < noiseGateThreshold)
+                        frame[1] = 0;
+                }
                 sound.WriteStreamSample(ClampFrame(frame));
             }
 
