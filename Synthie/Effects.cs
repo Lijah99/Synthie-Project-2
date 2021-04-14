@@ -11,7 +11,7 @@ namespace Synthie
     {
         double time = 0;
         List<List<double>> soundBuffer;
-        private int reverbDelayms = 500;
+        private float reverbDelayms = .2f;
         private double reverbFactor = 0.5;
         private int bufferNum = 0;
 
@@ -48,7 +48,7 @@ namespace Synthie
                 return;
             }
 
-            int delaySamples = sampleRate/2;
+            int delaySamples = (int)((float)reverbDelayms * sampleRate); ;
 
 
             if(time > 0.5)
