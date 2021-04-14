@@ -264,7 +264,7 @@ namespace Synthie
 
             //Elijah effects stuff
             effects.saveSound(frame);
-
+            effects.Reverb(frame, channels);
 
 
 

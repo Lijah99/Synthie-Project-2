@@ -24,6 +24,10 @@ namespace Synthie
             this.channels = channels;
             this.sampleRate = sampleRate;
             this.samplePeriod = samplePeriod;
+
+            soundBuffer = new List<List<double>>();
+            for (int i = 0; i < channels; i++)
+                soundBuffer.Add(new List<double>());
         }
 
         public void saveSound(double[] frame)
@@ -44,7 +48,7 @@ namespace Synthie
                 return;
             }
 
-            int delaySamples = sampleRate * reverbDelayms;
+            int delaySamples = sampleRate/2;
 
 
             if(time > 0.5)
