@@ -91,6 +91,8 @@ namespace Synthie
 
         private void synthesizerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (noiseGateCheck.Checked)
+                view.NoiseGateThreshold = (double)numericNoiseGateThreshold.Value;
             view.Generate();
             OnPostGeneration();
         }

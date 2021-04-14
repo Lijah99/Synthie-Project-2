@@ -94,7 +94,7 @@
             // fileOutputItem
             // 
             this.fileOutputItem.Name = "fileOutputItem";
-            this.fileOutputItem.Size = new System.Drawing.Size(180, 22);
+            this.fileOutputItem.Size = new System.Drawing.Size(147, 22);
             this.fileOutputItem.Text = "File Output";
             this.fileOutputItem.Click += new System.EventHandler(this.fileOutputItem_Click);
             // 
@@ -103,26 +103,26 @@
             this.audioOutputItem.Checked = true;
             this.audioOutputItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.audioOutputItem.Name = "audioOutputItem";
-            this.audioOutputItem.Size = new System.Drawing.Size(180, 22);
+            this.audioOutputItem.Size = new System.Drawing.Size(147, 22);
             this.audioOutputItem.Text = "Audio Output";
             this.audioOutputItem.Click += new System.EventHandler(this.audioOutputItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
             // 
             // hz1000Item
             // 
             this.hz1000Item.Name = "hz1000Item";
-            this.hz1000Item.Size = new System.Drawing.Size(180, 22);
+            this.hz1000Item.Size = new System.Drawing.Size(147, 22);
             this.hz1000Item.Text = "1000Hz Tone";
             this.hz1000Item.Click += new System.EventHandler(this.hz1000Item_Click);
             // 
             // synthesizerToolStripMenuItem
             // 
             this.synthesizerToolStripMenuItem.Name = "synthesizerToolStripMenuItem";
-            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.synthesizerToolStripMenuItem.Text = "Synthesizer";
             this.synthesizerToolStripMenuItem.Click += new System.EventHandler(this.synthesizerToolStripMenuItem_Click);
             // 
@@ -189,10 +189,10 @@
             // 
             this.numericNoiseGateThreshold.DecimalPlaces = 2;
             this.numericNoiseGateThreshold.Increment = new decimal(new int[] {
-            5,
+            1,
             0,
             0,
-            65536});
+            131072});
             this.numericNoiseGateThreshold.Location = new System.Drawing.Point(200, 55);
             this.numericNoiseGateThreshold.Maximum = new decimal(new int[] {
             1,

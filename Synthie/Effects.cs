@@ -9,83 +9,50 @@ namespace Synthie
 {
     class Effects
     {
-        static public void Tremolo(Sound sound)
+        double time = 0;
+        List<List<double>> soundBuffer;
+        private int reverbDelayms = 500;
+        private double reverbFactor = 0.5;
+        private int bufferNum = 0;
+
+        private int channels;
+        private int sampleRate;
+        private double samplePeriod;
+
+        public Effects(int sampleRate, double samplePeriod, int channels) 
         {
-            if (sound == null)
-            {
-                MessageBox.Show("Need a sound loaded first", "Process Error");
-                return;
-            }
-
-            //setup progress bar
-            ProgressBar progress = new ProgressBar();
-            progress.Runworker();
-
-            float time = 0;
-            int channels = sound.Format.Channels;
-            //tremolo factor
-            float trem;
-
-            for (int i = 0; i < sound.Samples.Length; i += channels, time += 1.0f / sound.Format.SampleRate)
-            {
-                trem = (float)(1 + .20 * Math.Sin(6 * Math.PI * time));
-
-                for (int c = 0; c < channels; c++)
-                {
-                    sound.Samples[i + c] = sound.Samples[i + c] * trem;
-                }
-                progress.UpdateProgress((double)i / sound.Samples.Length);
-            }
-
+            this.channels = channels;
+            this.sampleRate = sampleRate;
+            this.samplePeriod = samplePeriod;
         }
 
-        static public void Echo(Sound sound, float factor = 0.5f)
+        public void saveSound(double[] frame)
         {
-            if (sound == null)
-            {
-                MessageBox.Show("Need a sound loaded first", "Process Error");
-                return;
-            }
+            if(frame != null)
+                for (int i = 0; i < channels; i++)
+                    soundBuffer[i].Add(frame[i]);
 
-            //setup progress bar
-            ProgressBar progress = new ProgressBar();
-            progress.Runworker();
+            bufferNum++;
 
-            float time = 0;
-            int channels = sound.Format.Channels;
-
-            for (int i = 0; i < sound.Samples.Length; i += channels, time += 1.0f / sound.Format.SampleRate)
-            {
-                for (int c = 0; c < channels; c++)
-                {
-                    sound.Samples[i + c] = sound.Samples[i + c] + factor * sound.Samples[i + c];
-                }
-                progress.UpdateProgress((double)i / sound.Samples.Length);
-            }
+            time += samplePeriod;
         }
-
-        static public void NoiseGate(Sound sound, float factor = 0.5f)
+        public void Reverb(double [] frame, int channels)
         {
-            if (sound == null)
+            if (frame == null)
             {
                 MessageBox.Show("Need a sound loaded first", "Process Error");
                 return;
             }
 
-            //setup progress bar
-            ProgressBar progress = new ProgressBar();
-            progress.Runworker();
+            int delaySamples = sampleRate * reverbDelayms;
 
-            float time = 0;
-            int channels = sound.Format.Channels;
 
-            for (int i = 0; i < sound.Samples.Length; i += channels, time += 1.0f / sound.Format.SampleRate)
+            if(time > 0.5)
             {
-                for (int c = 0; c < channels; c++)
+                for(int i = 0; i < channels; i++)
                 {
-                    sound.Samples[i + c] = sound.Samples[i + c] + factor * sound.Samples[i + c];
+                    frame[i] += soundBuffer[i][bufferNum - delaySamples] * reverbFactor;
                 }
-                progress.UpdateProgress((double)i / sound.Samples.Length);
             }
 
         }

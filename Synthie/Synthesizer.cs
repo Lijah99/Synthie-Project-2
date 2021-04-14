@@ -25,6 +25,9 @@ namespace Synthie
         private int measure;              // The current measure
         private double beat;              // The current beat within the measure
 
+
+        private Effects effects;
+
         public int Channels { get => channels; set => channels = value; }
         public int SampleRate { get => sampleRate; set => sampleRate = value; }
         public double SamplePeriod { get => samplePeriod; set => samplePeriod = value; }
@@ -43,6 +46,8 @@ namespace Synthie
             bpm = 120;
             secperbeat = 0.5;
             beatspermeasure = 4;
+
+            effects = new Effects(sampleRate, samplePeriod, channels);
         }
 
         /// <summary>
@@ -255,6 +260,15 @@ namespace Synthie
 
             // Time advances by the sample period
             time += SamplePeriod;
+
+
+            //Elijah effects stuff
+            effects.saveSound(frame);
+
+
+
+
+
 
             // Beat advances by the sample period divided by the 
             // number of seconds per beat.  The inverse of seconds
