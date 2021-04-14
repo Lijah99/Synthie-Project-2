@@ -52,6 +52,7 @@
     <Compile Include="AR.cs" />
     <Compile Include="AudioNode.cs" />
     <Compile Include="DrumInstrument.cs" />
+    <Compile Include="DrumWaveTable.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Organ.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="longScoreFast.score" />
     <None Include="packages.config" />
@@ -106,6 +108,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\CYCdh_AcouKick-13.wav" />
+    <None Include="res\CYCdh_Crash-01.wav" />
+    <None Include="res\CYCdh_KesKick-04.wav" />
+    <None Include="res\CYCdh_KesKick-08.wav" />
+    <None Include="res\CYCdh_LooseKick-01.wav" />
+    <None Include="res\CYCdh_LooseKick-08.wav" />
+    <None Include="res\CYCdh_MultiCrash-01.wav" />
+    <None Include="res\CYCdh_Sab_ClHat-01.wav" />
+    <None Include="res\CYCdh_Sab_PdHat-02.wav" />
+    <None Include="res\KHats Open-01.wav" />
+    <None Include="res\Bamboo.wav" />
+    <None Include="res\Bass-Drum-2.wav" />
+    <None Include="res\Bass-Drum-3.wav" />
+    <None Include="res\Closed-Hi-Hat-1.wav" />
+    <None Include="res\Crash-Cymbal-3.wav" />
+    <None Include="res\Electronic-Tom-1.wav" />
+    <None Include="res\Electro-Tom.wav" />
+    <None Include="res\Ensoniq-ESQ-1-Snare.wav" />
+    <None Include="res\Ensoniq-ESQ-1-Snare-2.wav" />
+    <None Include="res\Hip-Hop-Snare-1.wav" />
     <Content Include="res\Synthie.ico" />
     <None Include="test1.score" />
   </ItemGroup>

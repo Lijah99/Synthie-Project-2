@@ -188,7 +188,7 @@ namespace Synthie
                     instrument = new Organ();
                 }
 
-                if (note.Instrument == "DrumInstrument")
+                else if (note.Instrument == "DrumInstrument")
                 {
                     instrument = new DrumInstrument();
                 }
