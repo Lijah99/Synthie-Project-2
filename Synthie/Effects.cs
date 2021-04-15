@@ -41,7 +41,7 @@ namespace Synthie
 
             time += samplePeriod;
         }
-        public void Reverb(double [] frame, int channels)
+        public void Reverb(double [] frame)
         {
             if (frame == null)
             {
@@ -62,7 +62,7 @@ namespace Synthie
 
         }
 
-        public void Flanger(double[] frame, int channels)
+        public void Flanger(double[] frame)
         {
             if (frame == null)
             {
@@ -71,10 +71,10 @@ namespace Synthie
             }
 
             //create max delay time to .005
-            double maxDelayTime = 0.005;
+            double maxDelayTime = 0.003;
 
             //create sin reference (idk what index is)
-            double sinRef = Math.Sin(2 * Math.PI *index * sampleRate );
+            double sinRef = Math.Sin(2 * Math.PI *index * (1.0/(double)sampleRate) );
 
             //grab max time delay in samp
             double maxTimeDelaySamp = Math.Round(maxDelayTime * sampleRate);
@@ -82,7 +82,7 @@ namespace Synthie
             //amplitude of noise
             double amplitude = 0.7;
 
-            if (time > maxDelayTime) // 5ms delay 
+            if (time > maxDelayTime) // 3ms delay 
             {
                 double currSin = Math.Abs(sinRef);
                 double currDelay = Math.Ceiling(currSin * maxTimeDelaySamp);
@@ -96,5 +96,25 @@ namespace Synthie
             index++;
         }
 
+        public void Chorus(double[] frame)
+        {
+            if (frame == null)
+            {
+                MessageBox.Show("Need a sound loaded first", "Process Error");
+                return;
+            }
+
+            int delaySamples = (int)((float)reverbDelayms * sampleRate); ;
+
+
+            if (time > 0.5)
+            {
+                for (int i = 0; i < channels; i++)
+                {
+                    frame[i] += soundBuffer[i][bufferNum - delaySamples] * reverbFactor;
+                }
+            }
+
+        }
     }
 }

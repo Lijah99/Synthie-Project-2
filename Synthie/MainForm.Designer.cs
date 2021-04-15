@@ -47,6 +47,9 @@
             this.noiseGateCheck = new System.Windows.Forms.CheckBox();
             this.effectsLabel = new System.Windows.Forms.Label();
             this.numericNoiseGateThreshold = new System.Windows.Forms.NumericUpDown();
+            this.reverbCheck = new System.Windows.Forms.CheckBox();
+            this.flangerCheck = new System.Windows.Forms.CheckBox();
+            this.chorusCheck = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).BeginInit();
             this.SuspendLayout();
@@ -203,11 +206,47 @@
             this.numericNoiseGateThreshold.Size = new System.Drawing.Size(120, 20);
             this.numericNoiseGateThreshold.TabIndex = 3;
             // 
+            // reverbCheck
+            // 
+            this.reverbCheck.AutoSize = true;
+            this.reverbCheck.Location = new System.Drawing.Point(18, 82);
+            this.reverbCheck.Name = "reverbCheck";
+            this.reverbCheck.Size = new System.Drawing.Size(90, 17);
+            this.reverbCheck.TabIndex = 4;
+            this.reverbCheck.Text = "Apply Reverb";
+            this.reverbCheck.UseVisualStyleBackColor = true;
+            this.reverbCheck.CheckedChanged += new System.EventHandler(this.reverbCheck_CheckedChanged);
+            // 
+            // flangerCheck
+            // 
+            this.flangerCheck.AutoSize = true;
+            this.flangerCheck.Location = new System.Drawing.Point(18, 106);
+            this.flangerCheck.Name = "flangerCheck";
+            this.flangerCheck.Size = new System.Drawing.Size(90, 17);
+            this.flangerCheck.TabIndex = 5;
+            this.flangerCheck.Text = "Apply Flanger";
+            this.flangerCheck.UseVisualStyleBackColor = true;
+            this.flangerCheck.CheckedChanged += new System.EventHandler(this.flangerCheck_CheckedChanged);
+            // 
+            // chorusCheck
+            // 
+            this.chorusCheck.AutoSize = true;
+            this.chorusCheck.Location = new System.Drawing.Point(18, 129);
+            this.chorusCheck.Name = "chorusCheck";
+            this.chorusCheck.Size = new System.Drawing.Size(88, 17);
+            this.chorusCheck.TabIndex = 6;
+            this.chorusCheck.Text = "Apply Chorus";
+            this.chorusCheck.UseVisualStyleBackColor = true;
+            this.chorusCheck.CheckedChanged += new System.EventHandler(this.chorusCheck_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chorusCheck);
+            this.Controls.Add(this.flangerCheck);
+            this.Controls.Add(this.reverbCheck);
             this.Controls.Add(this.numericNoiseGateThreshold);
             this.Controls.Add(this.effectsLabel);
             this.Controls.Add(this.noiseGateCheck);
@@ -244,6 +283,9 @@
         private System.Windows.Forms.CheckBox noiseGateCheck;
         private System.Windows.Forms.Label effectsLabel;
         private System.Windows.Forms.NumericUpDown numericNoiseGateThreshold;
+        private System.Windows.Forms.CheckBox reverbCheck;
+        private System.Windows.Forms.CheckBox flangerCheck;
+        private System.Windows.Forms.CheckBox chorusCheck;
     }
 }
 

@@ -116,5 +116,20 @@ namespace Synthie
             else
                 view.ApplyNoiseGate = false;
         }
+
+        private void reverbCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            view.switchReverb();
+        }
+
+        private void flangerCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            view.switchFlanger();
+        }
+
+        private void chorusCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            view.switchChorus();
+        }
     }
 }

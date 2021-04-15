@@ -27,6 +27,12 @@ namespace Synthie
 
 
         private Effects effects;
+        private Boolean reverbOn = false;
+        private Boolean flangerOn = false;
+        private Boolean chorusOn = false;
+        public Boolean Reverb { get => reverbOn; set => reverbOn = value; }
+        public Boolean Flanger { get => flangerOn; set => flangerOn = value; }
+        public Boolean Chorus { get => chorusOn; set => chorusOn = value; }
 
         public int Channels { get => channels; set => channels = value; }
         public int SampleRate { get => sampleRate; set => sampleRate = value; }
@@ -60,6 +66,7 @@ namespace Synthie
             measure = 0;
             beat = 0;
             time = 0;
+            effects = new Effects(sampleRate, samplePeriod, channels);
         }
 
         public void Clear()
@@ -264,8 +271,13 @@ namespace Synthie
 
             //Elijah effects stuff
             effects.saveSound(frame);
-            effects.Reverb(frame, channels);
-            effects.Flanger(frame, channels);
+
+            if(flangerOn == true)
+                effects.Flanger(frame);
+            if(reverbOn)
+                effects.Reverb(frame);
+            if(chorusOn)
+                effects.Chorus(frame);
 
 
 

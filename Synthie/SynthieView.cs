@@ -102,6 +102,27 @@ namespace Synthie
             synthesizer.OpenScore(filename);
         }
 
+        public void switchReverb()
+        {
+            if (synthesizer.Reverb == true)
+                synthesizer.Reverb = false;
+            else synthesizer.Reverb = true;
+        }
+
+        public void switchFlanger()
+        {
+            if (synthesizer.Flanger == true)
+                synthesizer.Flanger = false;
+            else synthesizer.Flanger = true;
+        }
+
+        public void switchChorus()
+        {
+            if (synthesizer.Chorus == true)
+                synthesizer.Chorus = false;
+            else synthesizer.Chorus = true;
+        }
+
         #region Menu handling. Forwards commands to Sound
 
         public void Play()
