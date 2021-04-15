@@ -20,6 +20,9 @@ namespace Synthie
         private double samplePeriod;
         private int index = 0;
 
+        public Double ReverbFactor { get => reverbFactor; set => reverbFactor = value; }
+        public float ReverbDuration { get => reverbDelayms; set => reverbDelayms = value; }
+
         public Effects(int sampleRate, double samplePeriod, int channels) 
         {
             this.channels = channels;
@@ -29,6 +32,16 @@ namespace Synthie
             soundBuffer = new List<List<double>>();
             for (int i = 0; i < channels; i++)
                 soundBuffer.Add(new List<double>());
+        }
+
+        public void reset()
+        {
+            soundBuffer = new List<List<double>>();
+            for (int i = 0; i < channels; i++)
+                soundBuffer.Add(new List<double>());
+            index = 0;
+            time = 0;
+            bufferNum = 0;
         }
 
         public void saveSound(double[] frame)
@@ -49,10 +62,10 @@ namespace Synthie
                 return;
             }
 
-            int delaySamples = (int)((float)reverbDelayms * sampleRate); ;
+            int delaySamples = (int)((float)reverbDelayms * sampleRate);
 
 
-            if(time > 0.5)
+            if(time > reverbDelayms)
             {
                 for(int i = 0; i < channels; i++)
                 {
@@ -103,9 +116,6 @@ namespace Synthie
                 MessageBox.Show("Need a sound loaded first", "Process Error");
                 return;
             }
-
-            int delaySamples = (int)((float)reverbDelayms * sampleRate); ;
-
 
             double vibrato = 0.05;
             double vibratoVal = Math.Sin((1.0 / (double)sampleRate) * vibrato * 2 * Math.PI);

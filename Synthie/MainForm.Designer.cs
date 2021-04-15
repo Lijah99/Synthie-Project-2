@@ -50,8 +50,15 @@
             this.reverbCheck = new System.Windows.Forms.CheckBox();
             this.flangerCheck = new System.Windows.Forms.CheckBox();
             this.chorusCheck = new System.Windows.Forms.CheckBox();
+            this.numericReverbFactor = new System.Windows.Forms.NumericUpDown();
+            this.reverbFactorLabel = new System.Windows.Forms.Label();
+            this.numericReverbDuration = new System.Windows.Forms.NumericUpDown();
+            this.reverbDurationLabel = new System.Windows.Forms.Label();
+            this.resetReverb = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericReverbFactor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericReverbDuration)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,7 +104,7 @@
             // fileOutputItem
             // 
             this.fileOutputItem.Name = "fileOutputItem";
-            this.fileOutputItem.Size = new System.Drawing.Size(147, 22);
+            this.fileOutputItem.Size = new System.Drawing.Size(180, 22);
             this.fileOutputItem.Text = "File Output";
             this.fileOutputItem.Click += new System.EventHandler(this.fileOutputItem_Click);
             // 
@@ -106,26 +113,26 @@
             this.audioOutputItem.Checked = true;
             this.audioOutputItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.audioOutputItem.Name = "audioOutputItem";
-            this.audioOutputItem.Size = new System.Drawing.Size(147, 22);
+            this.audioOutputItem.Size = new System.Drawing.Size(180, 22);
             this.audioOutputItem.Text = "Audio Output";
             this.audioOutputItem.Click += new System.EventHandler(this.audioOutputItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // hz1000Item
             // 
             this.hz1000Item.Name = "hz1000Item";
-            this.hz1000Item.Size = new System.Drawing.Size(147, 22);
+            this.hz1000Item.Size = new System.Drawing.Size(180, 22);
             this.hz1000Item.Text = "1000Hz Tone";
             this.hz1000Item.Click += new System.EventHandler(this.hz1000Item_Click);
             // 
             // synthesizerToolStripMenuItem
             // 
             this.synthesizerToolStripMenuItem.Name = "synthesizerToolStripMenuItem";
-            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.synthesizerToolStripMenuItem.Text = "Synthesizer";
             this.synthesizerToolStripMenuItem.Click += new System.EventHandler(this.synthesizerToolStripMenuItem_Click);
             // 
@@ -209,7 +216,7 @@
             // reverbCheck
             // 
             this.reverbCheck.AutoSize = true;
-            this.reverbCheck.Location = new System.Drawing.Point(18, 82);
+            this.reverbCheck.Location = new System.Drawing.Point(18, 84);
             this.reverbCheck.Name = "reverbCheck";
             this.reverbCheck.Size = new System.Drawing.Size(90, 17);
             this.reverbCheck.TabIndex = 4;
@@ -220,7 +227,7 @@
             // flangerCheck
             // 
             this.flangerCheck.AutoSize = true;
-            this.flangerCheck.Location = new System.Drawing.Point(18, 106);
+            this.flangerCheck.Location = new System.Drawing.Point(18, 119);
             this.flangerCheck.Name = "flangerCheck";
             this.flangerCheck.Size = new System.Drawing.Size(90, 17);
             this.flangerCheck.TabIndex = 5;
@@ -231,7 +238,7 @@
             // chorusCheck
             // 
             this.chorusCheck.AutoSize = true;
-            this.chorusCheck.Location = new System.Drawing.Point(18, 129);
+            this.chorusCheck.Location = new System.Drawing.Point(18, 142);
             this.chorusCheck.Name = "chorusCheck";
             this.chorusCheck.Size = new System.Drawing.Size(88, 17);
             this.chorusCheck.TabIndex = 6;
@@ -239,11 +246,90 @@
             this.chorusCheck.UseVisualStyleBackColor = true;
             this.chorusCheck.CheckedChanged += new System.EventHandler(this.chorusCheck_CheckedChanged);
             // 
+            // numericReverbFactor
+            // 
+            this.numericReverbFactor.DecimalPlaces = 2;
+            this.numericReverbFactor.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericReverbFactor.Location = new System.Drawing.Point(114, 81);
+            this.numericReverbFactor.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericReverbFactor.Name = "numericReverbFactor";
+            this.numericReverbFactor.Size = new System.Drawing.Size(41, 20);
+            this.numericReverbFactor.TabIndex = 7;
+            this.numericReverbFactor.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            // 
+            // reverbFactorLabel
+            // 
+            this.reverbFactorLabel.AutoSize = true;
+            this.reverbFactorLabel.Location = new System.Drawing.Point(161, 84);
+            this.reverbFactorLabel.Name = "reverbFactorLabel";
+            this.reverbFactorLabel.Size = new System.Drawing.Size(99, 13);
+            this.reverbFactorLabel.TabIndex = 8;
+            this.reverbFactorLabel.Text = "Reverb Factor (0-1)";
+            // 
+            // numericReverbDuration
+            // 
+            this.numericReverbDuration.DecimalPlaces = 2;
+            this.numericReverbDuration.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericReverbDuration.Location = new System.Drawing.Point(266, 81);
+            this.numericReverbDuration.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericReverbDuration.Name = "numericReverbDuration";
+            this.numericReverbDuration.Size = new System.Drawing.Size(41, 20);
+            this.numericReverbDuration.TabIndex = 9;
+            this.numericReverbDuration.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            // 
+            // reverbDurationLabel
+            // 
+            this.reverbDurationLabel.AutoSize = true;
+            this.reverbDurationLabel.Location = new System.Drawing.Point(313, 84);
+            this.reverbDurationLabel.Name = "reverbDurationLabel";
+            this.reverbDurationLabel.Size = new System.Drawing.Size(129, 13);
+            this.reverbDurationLabel.TabIndex = 10;
+            this.reverbDurationLabel.Text = "Reverb Duration (0-2 sec)";
+            // 
+            // resetReverb
+            // 
+            this.resetReverb.Location = new System.Drawing.Point(448, 79);
+            this.resetReverb.Name = "resetReverb";
+            this.resetReverb.Size = new System.Drawing.Size(75, 23);
+            this.resetReverb.TabIndex = 11;
+            this.resetReverb.Text = "Reset";
+            this.resetReverb.UseVisualStyleBackColor = true;
+            this.resetReverb.Click += new System.EventHandler(this.resetReverb_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resetReverb);
+            this.Controls.Add(this.reverbDurationLabel);
+            this.Controls.Add(this.numericReverbDuration);
+            this.Controls.Add(this.reverbFactorLabel);
+            this.Controls.Add(this.numericReverbFactor);
             this.Controls.Add(this.chorusCheck);
             this.Controls.Add(this.flangerCheck);
             this.Controls.Add(this.reverbCheck);
@@ -258,6 +344,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericReverbFactor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericReverbDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,6 +374,11 @@
         private System.Windows.Forms.CheckBox reverbCheck;
         private System.Windows.Forms.CheckBox flangerCheck;
         private System.Windows.Forms.CheckBox chorusCheck;
+        private System.Windows.Forms.NumericUpDown numericReverbFactor;
+        private System.Windows.Forms.Label reverbFactorLabel;
+        private System.Windows.Forms.NumericUpDown numericReverbDuration;
+        private System.Windows.Forms.Label reverbDurationLabel;
+        private System.Windows.Forms.Button resetReverb;
     }
 }
 

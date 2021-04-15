@@ -93,6 +93,14 @@ namespace Synthie
         {
             if (noiseGateCheck.Checked)
                 view.NoiseGateThreshold = (double)numericNoiseGateThreshold.Value;
+            if(reverbCheck.Checked)
+            {
+                double factor = (double)numericReverbFactor.Value;
+                double duration = (double)numericReverbDuration.Value;
+                view.setReverb(factor, duration);
+            }
+
+
             view.Generate();
             OnPostGeneration();
         }
@@ -120,6 +128,9 @@ namespace Synthie
         private void reverbCheck_CheckedChanged(object sender, EventArgs e)
         {
             view.switchReverb();
+            double factor = (double)numericReverbFactor.Value;
+            double duration = (double)numericReverbDuration.Value;
+            view.setReverb(factor, duration);
         }
 
         private void flangerCheck_CheckedChanged(object sender, EventArgs e)
@@ -130,6 +141,12 @@ namespace Synthie
         private void chorusCheck_CheckedChanged(object sender, EventArgs e)
         {
             view.switchChorus();
+        }
+
+        private void resetReverb_Click(object sender, EventArgs e)
+        {
+            numericReverbFactor.Value = (decimal)0.5;
+            numericReverbDuration.Value = (decimal)0.2;
         }
     }
 }

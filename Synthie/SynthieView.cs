@@ -123,6 +123,11 @@ namespace Synthie
             else synthesizer.Chorus = true;
         }
 
+        public void setReverb(double factor, double duration)
+        {
+            synthesizer.setReverb(factor, duration);
+        }
+
         #region Menu handling. Forwards commands to Sound
 
         public void Play()

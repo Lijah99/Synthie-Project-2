@@ -66,7 +66,8 @@ namespace Synthie
             measure = 0;
             beat = 0;
             time = 0;
-            effects = new Effects(sampleRate, samplePeriod, channels);
+            //effects.reset(); = new Effects(sampleRate, samplePeriod, channels);
+            effects.reset();
         }
 
         public void Clear()
@@ -305,5 +306,10 @@ namespace Synthie
             return instruments.Count > 0 || currentNote < notes.Count;
         }
 
+        public void setReverb(double factor, double duration)
+        {
+            effects.ReverbFactor = factor;
+            effects.ReverbDuration = (float)duration;
+        }
     }
 }
