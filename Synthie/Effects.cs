@@ -70,7 +70,7 @@ namespace Synthie
                 return;
             }
 
-            //create max delay time to .005
+            //create max delay time to .003
             double maxDelayTime = 0.003;
 
             //create sin reference (idk what index is)
@@ -80,7 +80,7 @@ namespace Synthie
             double maxTimeDelaySamp = Math.Round(maxDelayTime * sampleRate);
 
             //amplitude of noise
-            double amplitude = 0.7;
+            double amplitude = .7;
 
             if (time > maxDelayTime) // 3ms delay 
             {
@@ -107,11 +107,17 @@ namespace Synthie
             int delaySamples = (int)((float)reverbDelayms * sampleRate); ;
 
 
-            if (time > 0.5)
+            double vibrato = 0.05;
+            double vibratoVal = Math.Sin((1.0 / (double)sampleRate) * vibrato * 2 * Math.PI);
+
+            vibrato = vibrato * -1;
+
+
+            if (time > 0.1)
             {
                 for (int i = 0; i < channels; i++)
                 {
-                    frame[i] += soundBuffer[i][bufferNum - delaySamples] * reverbFactor;
+                    frame[i] += soundBuffer[i][bufferNum - 1] * vibratoVal;
                 }
             }
 
