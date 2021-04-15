@@ -18,6 +18,7 @@ namespace Synthie
         private int channels;
         private int sampleRate;
         private double samplePeriod;
+        private int index = 0;
 
         public Effects(int sampleRate, double samplePeriod, int channels) 
         {
@@ -59,6 +60,40 @@ namespace Synthie
                 }
             }
 
+        }
+
+        public void Flanger(double[] frame, int channels)
+        {
+            if (frame == null)
+            {
+                MessageBox.Show("Need a sound loaded first", "Process Error");
+                return;
+            }
+
+            //create max delay time to .005
+            double maxDelayTime = 0.005;
+
+            //create sin reference (idk what index is)
+            double sinRef = Math.Sin(2 * Math.PI *index * sampleRate );
+
+            //grab max time delay in samp
+            double maxTimeDelaySamp = Math.Round(maxDelayTime * sampleRate);
+
+            //amplitude of noise
+            double amplitude = 0.7;
+
+            if (time > maxDelayTime) // 5ms delay 
+            {
+                double currSin = Math.Abs(sinRef);
+                double currDelay = Math.Ceiling(currSin * maxTimeDelaySamp);
+
+                for (int i = 0; i < channels; i++)
+                {
+                    frame[i] += soundBuffer[i][bufferNum - (int)currDelay] * amplitude;
+                }
+            }
+
+            index++;
         }
 
     }
