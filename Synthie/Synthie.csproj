@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AR.cs" />
     <Compile Include="AudioNode.cs" />
+    <Compile Include="BandPass.cs" />
     <Compile Include="DrumInstrument.cs" />
     <Compile Include="DrumWaveTable.cs" />
     <Compile Include="Effects.cs" />
@@ -129,6 +130,7 @@
     <None Include="res\Ensoniq-ESQ-1-Snare.wav" />
     <None Include="res\Ensoniq-ESQ-1-Snare-2.wav" />
     <None Include="res\Hip-Hop-Snare-1.wav" />
+    <None Include="res\Electronic-Tom-4.wav" />
     <Content Include="res\Synthie.ico" />
     <None Include="test1.score" />
   </ItemGroup>

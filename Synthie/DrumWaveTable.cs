@@ -14,22 +14,12 @@ namespace Synthie
     class DrumWaveTable : AudioNode
     {
         private WaveFormat format = null;
+        private BandPass filter = null;
         private float[] cachedSamples;
         public int phase;
-        public int offset;
-        /*private Dictionary<int, UnmanagedMemoryStream> SampleTypes = new Dictionary<int, UnmanagedMemoryStream>()
-        {
-            {0, Resources.LooseKick01 },
-            {1, Resources.LooseKick08 },
-            {2, Resources.KesKick04 },
-            {3, Resources.KesKick08 },
-            {4, Resources.AccousticKick },
-            {5, Resources.Crash01 },
-            {6, Resources.MultiCrash01 },
-            {7, Resources.KHat_Open01 },
-            {8, Resources.HiHat01 },
-            {9, Resources.PdHat02 }
-        };*/
+        private double filterFreq;
+        
+        public double FilterFreq { set => filterFreq = value; }
 
         public float[] Samples { get => cachedSamples; set => cachedSamples = value; }
 
@@ -50,14 +40,14 @@ namespace Synthie
             else return false;
         }
 
-        public bool GetTable(int NeededSamples)
+        public bool GetTable()
         {
-            int increment = cachedSamples.Length / NeededSamples;
+            //int increment = cachedSamples.Length / NeededSamples;
             if (phase < cachedSamples.Length)
             {
                 frame[0] = (double)cachedSamples[phase];
                 frame[1] = frame[0];
-                phase += increment;
+                phase++;
                 return true;
             }
             else return false;
@@ -66,6 +56,51 @@ namespace Synthie
         public override void Start()
         {
             phase = 0;
+            filter = new BandPass(filterFreq, SampleRate, cachedSamples);
+            cachedSamples = filter.BPF();
+        }
+
+        private float[] separateCache()
+        {
+            int j = 0;
+            float[] newCache = new float[cachedSamples.Length / 2];
+            for (int i = 0; i < cachedSamples.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    newCache[j] = cachedSamples[i];
+                    j++;
+                }
+            }
+            return newCache;
+        }
+
+        private float[] BPF(double SetFrequency)
+        {
+            float[] Output = cachedSamples;
+            float Fc = (float)SetFrequency / sampleRate;
+            float Q = 50;
+            float norm;
+            float K = (float)Math.Tan(Math.PI * Fc);
+
+            norm = 1 / (1 + K / Q + K * K);
+            float a0 = 1 * norm;
+            float a1 = -2 * a0;
+            float a2 = a0;
+            float b1 = 2 * (K * K - 1) * norm;
+            float b2 = (1 - K / Q + K * K) * norm;
+            float z1 = 0;
+            float z2 = z1;
+
+            for (int idx = 0; idx < cachedSamples.Length; idx++)
+            {
+                float input = cachedSamples[idx];
+                float output = input * a0 + z1;
+                z1 = input * a1 + z2 - b1 * output;
+                z2 = input * a2 - b2 * output;
+                cachedSamples[idx] = output;
+            }
+            return cachedSamples;
         }
         
         private bool OpenSample(UnmanagedMemoryStream resourceStream)
@@ -83,6 +118,7 @@ namespace Synthie
                 float[] temp = new float[reader.Length];
                 provider.Read(temp, 0, (int)reader.Length);
                 cachedSamples = temp;
+                cachedSamples = separateCache();
             }
             catch (Exception e)
             {

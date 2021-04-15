@@ -201,17 +201,47 @@ namespace Synthie
                     instrument = new Organ();
                 }
 
-                else if (note.Instrument == "DrumInstrument")
+                else if (note.Instrument == "BassDrum")
                 {
-                    instrument = new DrumInstrument();
+                    instrument = new DrumInstrument("BassDrum");
+                }
+
+                else if (note.Instrument == "SnareDrum")
+                {
+                    instrument = new DrumInstrument("SnareDrum");
+                }
+
+                else if (note.Instrument == "Tom1")
+                {
+                    instrument = new DrumInstrument("Tom1");
+                }
+
+                else if (note.Instrument == "Tom2")
+                {
+                    instrument = new DrumInstrument("Tom2");
+                }
+
+                else if (note.Instrument == "Cymbals")
+                {
+                    instrument = new DrumInstrument("Cymbals");
+                }
+
+                else if (note.Instrument == "HipHop")
+                {
+                    instrument = new DrumInstrument("HipHop");
+                }
+
+                else if (note.Instrument == "SyntheticDrum")
+                {
+                    instrument = new DrumInstrument("SyntheticDrum");
                 }
                 // Configure the instrument object
                 if (instrument != null)
                 {
                     instrument.SampleRate = SampleRate;
                     instrument.SetNote(note);
-                    instrument.Start();
                     instrument.BPM = bpm;
+                    instrument.Start();
 
                     instruments.Add(instrument);
                 }

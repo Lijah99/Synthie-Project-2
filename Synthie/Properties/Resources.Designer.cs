@@ -126,6 +126,15 @@ namespace Synthie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Electronic_Tom_4 {
+            get {
+                return ResourceManager.GetStream("Electronic_Tom_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Ensoniq_ESQ_1_Snare {
             get {
                 return ResourceManager.GetStream("Ensoniq_ESQ_1_Snare", resourceCulture);
