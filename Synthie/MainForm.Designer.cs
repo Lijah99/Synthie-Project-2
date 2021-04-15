@@ -78,7 +78,7 @@
             this.openScoreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(617, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,7 +112,7 @@
             // fileOutputItem
             // 
             this.fileOutputItem.Name = "fileOutputItem";
-            this.fileOutputItem.Size = new System.Drawing.Size(180, 22);
+            this.fileOutputItem.Size = new System.Drawing.Size(147, 22);
             this.fileOutputItem.Text = "File Output";
             this.fileOutputItem.Click += new System.EventHandler(this.fileOutputItem_Click);
             // 
@@ -121,26 +121,26 @@
             this.audioOutputItem.Checked = true;
             this.audioOutputItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.audioOutputItem.Name = "audioOutputItem";
-            this.audioOutputItem.Size = new System.Drawing.Size(180, 22);
+            this.audioOutputItem.Size = new System.Drawing.Size(147, 22);
             this.audioOutputItem.Text = "Audio Output";
             this.audioOutputItem.Click += new System.EventHandler(this.audioOutputItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
             // 
             // hz1000Item
             // 
             this.hz1000Item.Name = "hz1000Item";
-            this.hz1000Item.Size = new System.Drawing.Size(180, 22);
+            this.hz1000Item.Size = new System.Drawing.Size(147, 22);
             this.hz1000Item.Text = "1000Hz Tone";
             this.hz1000Item.Click += new System.EventHandler(this.hz1000Item_Click);
             // 
             // synthesizerToolStripMenuItem
             // 
             this.synthesizerToolStripMenuItem.Name = "synthesizerToolStripMenuItem";
-            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.synthesizerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.synthesizerToolStripMenuItem.Text = "Synthesizer";
             this.synthesizerToolStripMenuItem.Click += new System.EventHandler(this.synthesizerToolStripMenuItem_Click);
             // 
@@ -235,7 +235,7 @@
             // flangerCheck
             // 
             this.flangerCheck.AutoSize = true;
-            this.flangerCheck.Location = new System.Drawing.Point(18, 120);
+            this.flangerCheck.Location = new System.Drawing.Point(18, 114);
             this.flangerCheck.Name = "flangerCheck";
             this.flangerCheck.Size = new System.Drawing.Size(90, 17);
             this.flangerCheck.TabIndex = 5;
@@ -246,7 +246,7 @@
             // chorusCheck
             // 
             this.chorusCheck.AutoSize = true;
-            this.chorusCheck.Location = new System.Drawing.Point(18, 162);
+            this.chorusCheck.Location = new System.Drawing.Point(18, 138);
             this.chorusCheck.Name = "chorusCheck";
             this.chorusCheck.Size = new System.Drawing.Size(88, 17);
             this.chorusCheck.TabIndex = 6;
@@ -330,7 +330,7 @@
             // 
             // numericFlangerDelay
             // 
-            this.numericFlangerDelay.Location = new System.Drawing.Point(112, 117);
+            this.numericFlangerDelay.Location = new System.Drawing.Point(112, 111);
             this.numericFlangerDelay.Maximum = new decimal(new int[] {
             500,
             0,
@@ -349,7 +349,7 @@
             // labelFlangerDelay
             // 
             this.labelFlangerDelay.AutoSize = true;
-            this.labelFlangerDelay.Location = new System.Drawing.Point(168, 120);
+            this.labelFlangerDelay.Location = new System.Drawing.Point(168, 114);
             this.labelFlangerDelay.Name = "labelFlangerDelay";
             this.labelFlangerDelay.Size = new System.Drawing.Size(121, 13);
             this.labelFlangerDelay.TabIndex = 13;
@@ -357,7 +357,7 @@
             // 
             // resetFlanger
             // 
-            this.resetFlanger.Location = new System.Drawing.Point(295, 115);
+            this.resetFlanger.Location = new System.Drawing.Point(295, 109);
             this.resetFlanger.Name = "resetFlanger";
             this.resetFlanger.Size = new System.Drawing.Size(75, 23);
             this.resetFlanger.TabIndex = 14;
@@ -373,7 +373,7 @@
             0,
             0,
             131072});
-            this.numericChorus.Location = new System.Drawing.Point(112, 161);
+            this.numericChorus.Location = new System.Drawing.Point(112, 137);
             this.numericChorus.Maximum = new decimal(new int[] {
             3,
             0,
@@ -391,15 +391,15 @@
             // vibratoLabel
             // 
             this.vibratoLabel.AutoSize = true;
-            this.vibratoLabel.Location = new System.Drawing.Point(168, 166);
+            this.vibratoLabel.Location = new System.Drawing.Point(168, 142);
             this.vibratoLabel.Name = "vibratoLabel";
-            this.vibratoLabel.Size = new System.Drawing.Size(125, 13);
+            this.vibratoLabel.Size = new System.Drawing.Size(116, 13);
             this.vibratoLabel.TabIndex = 16;
-            this.vibratoLabel.Text = "Vibrato Modulation Value";
+            this.vibratoLabel.Text = "Pitch Modulation Value";
             // 
             // chorusReset
             // 
-            this.chorusReset.Location = new System.Drawing.Point(295, 158);
+            this.chorusReset.Location = new System.Drawing.Point(295, 134);
             this.chorusReset.Name = "chorusReset";
             this.chorusReset.Size = new System.Drawing.Size(75, 23);
             this.chorusReset.TabIndex = 17;
@@ -411,7 +411,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(617, 184);
             this.Controls.Add(this.chorusReset);
             this.Controls.Add(this.vibratoLabel);
             this.Controls.Add(this.numericChorus);
