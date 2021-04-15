@@ -55,10 +55,18 @@
             this.numericReverbDuration = new System.Windows.Forms.NumericUpDown();
             this.reverbDurationLabel = new System.Windows.Forms.Label();
             this.resetReverb = new System.Windows.Forms.Button();
+            this.numericFlangerDelay = new System.Windows.Forms.NumericUpDown();
+            this.labelFlangerDelay = new System.Windows.Forms.Label();
+            this.resetFlanger = new System.Windows.Forms.Button();
+            this.numericChorus = new System.Windows.Forms.NumericUpDown();
+            this.vibratoLabel = new System.Windows.Forms.Label();
+            this.chorusReset = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericReverbFactor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericReverbDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericFlangerDelay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericChorus)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -227,7 +235,7 @@
             // flangerCheck
             // 
             this.flangerCheck.AutoSize = true;
-            this.flangerCheck.Location = new System.Drawing.Point(18, 119);
+            this.flangerCheck.Location = new System.Drawing.Point(18, 120);
             this.flangerCheck.Name = "flangerCheck";
             this.flangerCheck.Size = new System.Drawing.Size(90, 17);
             this.flangerCheck.TabIndex = 5;
@@ -238,7 +246,7 @@
             // chorusCheck
             // 
             this.chorusCheck.AutoSize = true;
-            this.chorusCheck.Location = new System.Drawing.Point(18, 142);
+            this.chorusCheck.Location = new System.Drawing.Point(18, 162);
             this.chorusCheck.Name = "chorusCheck";
             this.chorusCheck.Size = new System.Drawing.Size(88, 17);
             this.chorusCheck.TabIndex = 6;
@@ -254,7 +262,7 @@
             0,
             0,
             131072});
-            this.numericReverbFactor.Location = new System.Drawing.Point(114, 81);
+            this.numericReverbFactor.Location = new System.Drawing.Point(112, 81);
             this.numericReverbFactor.Maximum = new decimal(new int[] {
             1,
             0,
@@ -320,11 +328,96 @@
             this.resetReverb.UseVisualStyleBackColor = true;
             this.resetReverb.Click += new System.EventHandler(this.resetReverb_Click);
             // 
+            // numericFlangerDelay
+            // 
+            this.numericFlangerDelay.Location = new System.Drawing.Point(112, 117);
+            this.numericFlangerDelay.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numericFlangerDelay.Name = "numericFlangerDelay";
+            this.numericFlangerDelay.Size = new System.Drawing.Size(50, 20);
+            this.numericFlangerDelay.TabIndex = 12;
+            this.numericFlangerDelay.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericFlangerDelay.ValueChanged += new System.EventHandler(this.numericFlangerDelay_ValueChanged);
+            // 
+            // labelFlangerDelay
+            // 
+            this.labelFlangerDelay.AutoSize = true;
+            this.labelFlangerDelay.Location = new System.Drawing.Point(168, 120);
+            this.labelFlangerDelay.Name = "labelFlangerDelay";
+            this.labelFlangerDelay.Size = new System.Drawing.Size(121, 13);
+            this.labelFlangerDelay.TabIndex = 13;
+            this.labelFlangerDelay.Text = "Flanger Delay (0-500ms)";
+            // 
+            // resetFlanger
+            // 
+            this.resetFlanger.Location = new System.Drawing.Point(295, 115);
+            this.resetFlanger.Name = "resetFlanger";
+            this.resetFlanger.Size = new System.Drawing.Size(75, 23);
+            this.resetFlanger.TabIndex = 14;
+            this.resetFlanger.Text = "Reset";
+            this.resetFlanger.UseVisualStyleBackColor = true;
+            this.resetFlanger.Click += new System.EventHandler(this.resetFlanger_Click);
+            // 
+            // numericChorus
+            // 
+            this.numericChorus.DecimalPlaces = 2;
+            this.numericChorus.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericChorus.Location = new System.Drawing.Point(112, 161);
+            this.numericChorus.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericChorus.Name = "numericChorus";
+            this.numericChorus.Size = new System.Drawing.Size(50, 20);
+            this.numericChorus.TabIndex = 15;
+            this.numericChorus.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            // 
+            // vibratoLabel
+            // 
+            this.vibratoLabel.AutoSize = true;
+            this.vibratoLabel.Location = new System.Drawing.Point(168, 166);
+            this.vibratoLabel.Name = "vibratoLabel";
+            this.vibratoLabel.Size = new System.Drawing.Size(125, 13);
+            this.vibratoLabel.TabIndex = 16;
+            this.vibratoLabel.Text = "Vibrato Modulation Value";
+            // 
+            // chorusReset
+            // 
+            this.chorusReset.Location = new System.Drawing.Point(295, 158);
+            this.chorusReset.Name = "chorusReset";
+            this.chorusReset.Size = new System.Drawing.Size(75, 23);
+            this.chorusReset.TabIndex = 17;
+            this.chorusReset.Text = "Reset";
+            this.chorusReset.UseVisualStyleBackColor = true;
+            this.chorusReset.Click += new System.EventHandler(this.chorusReset_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chorusReset);
+            this.Controls.Add(this.vibratoLabel);
+            this.Controls.Add(this.numericChorus);
+            this.Controls.Add(this.resetFlanger);
+            this.Controls.Add(this.labelFlangerDelay);
+            this.Controls.Add(this.numericFlangerDelay);
             this.Controls.Add(this.resetReverb);
             this.Controls.Add(this.reverbDurationLabel);
             this.Controls.Add(this.numericReverbDuration);
@@ -346,6 +439,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericNoiseGateThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericReverbFactor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericReverbDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericFlangerDelay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericChorus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,6 +474,12 @@
         private System.Windows.Forms.NumericUpDown numericReverbDuration;
         private System.Windows.Forms.Label reverbDurationLabel;
         private System.Windows.Forms.Button resetReverb;
+        private System.Windows.Forms.NumericUpDown numericFlangerDelay;
+        private System.Windows.Forms.Label labelFlangerDelay;
+        private System.Windows.Forms.Button resetFlanger;
+        private System.Windows.Forms.NumericUpDown numericChorus;
+        private System.Windows.Forms.Label vibratoLabel;
+        private System.Windows.Forms.Button chorusReset;
     }
 }
 

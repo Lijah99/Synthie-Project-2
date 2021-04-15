@@ -311,5 +311,15 @@ namespace Synthie
             effects.ReverbFactor = factor;
             effects.ReverbDuration = (float)duration;
         }
+
+        public void setFlanger(double duration)
+        {
+            effects.FlangerDuration = duration;
+        }
+
+        public void setChorus(double vibrato)
+        {
+            effects.Vibrato = vibrato;
+        }
     }
 }

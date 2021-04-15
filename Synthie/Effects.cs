@@ -13,6 +13,8 @@ namespace Synthie
         List<List<double>> soundBuffer;
         private float reverbDelayms = .2f;
         private double reverbFactor = 0.5;
+        private double flangerDelay = 0.003;
+        private double vibratoValue = 0.05;
         private int bufferNum = 0;
 
         private int channels;
@@ -20,8 +22,10 @@ namespace Synthie
         private double samplePeriod;
         private int index = 0;
 
-        public Double ReverbFactor { get => reverbFactor; set => reverbFactor = value; }
+        public double ReverbFactor { get => reverbFactor; set => reverbFactor = value; }
         public float ReverbDuration { get => reverbDelayms; set => reverbDelayms = value; }
+        public double Vibrato { get => vibratoValue; set => vibratoValue = value; }
+        public double FlangerDuration { get => flangerDelay; set => flangerDelay = value; }
 
         public Effects(int sampleRate, double samplePeriod, int channels) 
         {
@@ -84,7 +88,7 @@ namespace Synthie
             }
 
             //create max delay time to .003
-            double maxDelayTime = 0.003;
+            double maxDelayTime = flangerDelay;
 
             //create sin reference (idk what index is)
             double sinRef = Math.Sin(2 * Math.PI *index * (1.0/(double)sampleRate) );
@@ -117,7 +121,7 @@ namespace Synthie
                 return;
             }
 
-            double vibrato = 0.05;
+            double vibrato = vibratoValue;
             double vibratoVal = Math.Sin((1.0 / (double)sampleRate) * vibrato * 2 * Math.PI);
 
             vibrato = vibrato * -1;

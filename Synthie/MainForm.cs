@@ -99,7 +99,16 @@ namespace Synthie
                 double duration = (double)numericReverbDuration.Value;
                 view.setReverb(factor, duration);
             }
-
+            if(flangerCheck.Checked)
+            {
+                double flangerDuration = (double)numericFlangerDelay.Value;
+                view.setFlanger(flangerDuration / 1000);
+            }
+            if(chorusCheck.Checked)
+            {
+                double chorusVibrato = (double)numericChorus.Value;
+                view.setChorus(chorusVibrato);
+            }
 
             view.Generate();
             OnPostGeneration();
@@ -136,17 +145,36 @@ namespace Synthie
         private void flangerCheck_CheckedChanged(object sender, EventArgs e)
         {
             view.switchFlanger();
+            double flangerDuration = (double)numericFlangerDelay.Value / 1000;
+            view.setFlanger(flangerDuration);
         }
 
         private void chorusCheck_CheckedChanged(object sender, EventArgs e)
         {
             view.switchChorus();
+            double chorusVibrato = (double)numericChorus.Value;
+            view.setChorus(chorusVibrato);
         }
 
         private void resetReverb_Click(object sender, EventArgs e)
         {
             numericReverbFactor.Value = (decimal)0.5;
             numericReverbDuration.Value = (decimal)0.2;
+        }
+
+        private void numericFlangerDelay_ValueChanged(object sender, EventArgs e)
+        {
+            //placeholder
+        }
+
+        private void resetFlanger_Click(object sender, EventArgs e)
+        {
+            numericFlangerDelay.Value = (decimal)3;
+        }
+
+        private void chorusReset_Click(object sender, EventArgs e)
+        {
+            numericChorus.Value = (decimal)0.05;
         }
     }
 }

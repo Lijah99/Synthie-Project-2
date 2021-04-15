@@ -128,6 +128,16 @@ namespace Synthie
             synthesizer.setReverb(factor, duration);
         }
 
+        public void setFlanger(double duration)
+        {
+            synthesizer.setFlanger(duration);
+        }
+
+        public void setChorus(double vibrato)
+        {
+            synthesizer.setChorus(vibrato);
+        }
+
         #region Menu handling. Forwards commands to Sound
 
         public void Play()
